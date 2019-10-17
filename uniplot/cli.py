@@ -28,3 +28,4 @@ def cli():
     ## Takes the func argument, which points to the function to call it
     args.func(args)
 
+
