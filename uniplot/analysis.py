@@ -3,7 +3,7 @@ def average_len(records):
     total_Length = 0
     for i in records:
         count = count + 1
-        total_Length = total_Length + len(i.name)
+        total_Length = total_Length + len(i.seq)
         average = total_Length/count
     return average
 
