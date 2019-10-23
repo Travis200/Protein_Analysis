@@ -1,6 +1,7 @@
 import argparse
 from . import parse
 from . import analysis
+from . import plot
 
 LOC="uniprot_receptor.xml.gz"
 
@@ -16,6 +17,10 @@ def average(args):
     print("Average Length is {}".format(
         analysis.average_len(parse.uniprot_seqrecords(LOC))))
 
+def plot_average_by_taxa(args):
+    av = analysis.average_len_taxa(parse.uniprot_seqrecords(LOC))
+    plot.plot_bar_show(av)
+
 def cli():
     ## Create a new parser
     parser = argparse.ArgumentParser(prog="uniplot")
@@ -26,11 +31,14 @@ def cli():
     subparsers.add_parser("dump").set_defaults(func=dump)
     subparsers.add_parser("list").set_defaults(func=names)
     subparsers.add_parser("average").set_defaults(func=average)
+    subparsers.add_parser("plot_average_by_taxa").set_defaults(func=plot_average_by_taxa)
 
     ## Parse the command line
     args = parser.parse_args()
 
     ## Takes the func argument, which points to the function to call it
     args.func(args)
+
+
 
 
