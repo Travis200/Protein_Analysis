@@ -2,6 +2,7 @@ import argparse
 from . import parse
 from . import analysis
 from . import plot
+import matplotlib.pyplot as plt
 
 def dump(args):
     for record in parse. uniprot_seqrecords(args.LOC):
@@ -16,8 +17,10 @@ def average(args):
         analysis.average_len(parse.uniprot_seqrecords(args.LOC))))
 
 def plot_average_by_taxa(args):
-    av = analysis.average_len_taxa(parse.uniprot_seqrecords(args.LOC), int(args.taxaDepth))
-    plot.plot_bar_show(av)
+    av = analysis.average_len_taxa2(parse.uniprot_seqrecords(args.LOC), int(args.taxaDepth))
+    plot.pieChart(av)
+    ##plot.plot_bar_show(av)
+    plt.show()
 
 def cli():
     ## Create a new parser
