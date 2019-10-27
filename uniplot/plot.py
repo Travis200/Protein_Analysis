@@ -16,18 +16,8 @@ def plot_bar_show(d):
     plt.show()
 
 def pieChart(d) :
-    ## A list of numbers as long as the elements in d
-    ## r = range(0, len(d))
-    ## Prepare a figure
-    ##plt.figure()
     labels = d.keys()
     sizes = d.values()
-    ##labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
-    ##sizes = [15, 30, 45, 10]
-
-    """plt.pie(r, d.values())
-    ## Add labels to the x-axis, with the keys of d
-    plt.pie(r, d.keys())"""
 
     fig1, ax1 = plt.subplots()
     ax1.pie(sizes, labels=labels, autopct='%1.1f%%',
