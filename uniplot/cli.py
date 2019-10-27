@@ -16,7 +16,7 @@ def average(args):
         analysis.average_len(parse.uniprot_seqrecords(args.LOC))))
 
 def plot_average_by_taxa(args):
-    av = analysis.average_len_taxa(parse.uniprot_seqrecords(args.LOC))
+    av = analysis.average_len_taxa(parse.uniprot_seqrecords(args.LOC), int(args.taxaDepth))
     plot.plot_bar_show(av)
 
 def cli():
@@ -24,7 +24,7 @@ def cli():
     parser = argparse.ArgumentParser(prog="uniplot")
     ## This is the optional arguements
     parser.add_argument("-file",dest="LOC", default="uniprot_receptor.xml.gz")
-
+    parser.add_argument("-taxa", dest="taxaDepth",default=0)
     subparsers = parser.add_subparsers(help="Sub Command Help")
 
     ## Add subparsers
@@ -34,7 +34,6 @@ def cli():
     subparsers.add_parser("plot_average_by_taxa").set_defaults(func=plot_average_by_taxa)
     ## Parse the command line
     args = parser.parse_args()
-
     ## Takes the func argument, which points to the function to call it
     args.func(args)
 
