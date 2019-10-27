@@ -17,9 +17,14 @@ def average(args):
         analysis.average_len(parse.uniprot_seqrecords(args.LOC))))
 
 def plot_average_by_taxa(args):
+    av = analysis.average_len_taxa(parse.uniprot_seqrecords(args.LOC), int(args.taxaDepth))
+    ##plot.pieChart(av)
+    plot.plot_bar_show(av)
+    plt.show()
+
+def plot_average_by_taxa_pie(args):
     av = analysis.average_len_taxa2(parse.uniprot_seqrecords(args.LOC), int(args.taxaDepth))
     plot.pieChart(av)
-    ##plot.plot_bar_show(av)
     plt.show()
 
 def cli():
@@ -35,6 +40,7 @@ def cli():
     subparsers.add_parser("list").set_defaults(func=names)
     subparsers.add_parser("average").set_defaults(func=average)
     subparsers.add_parser("plot_average_by_taxa").set_defaults(func=plot_average_by_taxa)
+    subparsers.add_parser("plot_average_by_taxa_pie").set_defaults(func=plot_average_by_taxa_pie)
     ## Parse the command line
     args = parser.parse_args()
     ## Takes the func argument, which points to the function to call it
