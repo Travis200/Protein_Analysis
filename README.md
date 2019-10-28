@@ -3,7 +3,7 @@ CSC1034: Practical 2
 
 This package allows analysis and display of proteins from Uniprot.
 
-Pipenv run python uniplot.py list - Returns a list of all proteins in the file.
+Pipenv run python uniplot.py list - Returns a list of all protein names in the file.
 
 Pipenv run python uniplot.py dump - Returns everything in the file.
 

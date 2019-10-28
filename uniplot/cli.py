@@ -15,7 +15,7 @@ def names(args):
         print(record.name)
 
 def average(args):
-"""This retrieves the data for the average"""
+    """This retrieves the data for the average"""
     print("Average Length is {}".format(
         analysis.average_len(parse.uniprot_seqrecords(args.LOC))))
 
