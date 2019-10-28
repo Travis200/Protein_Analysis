@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 
 def plot_bar_show(d):
+    """Produces a bar chart by taxa"""
     ## A list of numbers as long as the elements in d
     r = range(0, len(d))
     ## Prepare a figure
@@ -16,6 +17,7 @@ def plot_bar_show(d):
     plt.show()
 
 def pieChart(d) :
+    """Produces a pie chart by taxa"""
     labels = d.keys()
     sizes = d.values()
 
