@@ -5,7 +5,7 @@ This package allows analysis and display of proteins from Uniprot. The programme
 and then presents the data in variety of ways depending on the users needs. The command line interface is explained  
 below. 
 
-```Pipenv run python uniplot.py list``` - Returns a list of all protein names in the file.
+```Pipenv run python uniplot.py list``` - Returns a list of all protein names.
 
 ```Pipenv run python uniplot.py dump``` - Returns everything in the file.
 

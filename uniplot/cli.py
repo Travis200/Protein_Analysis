@@ -34,18 +34,20 @@ def plot_average_by_taxa_pie(args):
 def cli():
     """This contains all of the parsers and subparsers for the command line interface"""
     ## Create a new parser
-    parser = argparse.ArgumentParser(prog="uniplot")
+    parser = argparse.ArgumentParser(prog="uniplot",)
     ## This is the optional arguements
     parser.add_argument("-file",dest="LOC", default="uniprot_receptor.xml.gz")
     parser.add_argument("-depth", dest="taxaDepth",default=0)
     subparsers = parser.add_subparsers(help="Sub Command Help")
 
     ## Add subparsers
-    subparsers.add_parser("dump").set_defaults(func=dump)
-    subparsers.add_parser("list").set_defaults(func=names)
-    subparsers.add_parser("average").set_defaults(func=average)
-    subparsers.add_parser("plot-average-by-taxa").set_defaults(func=plot_average_by_taxa)
-    subparsers.add_parser("plot-average-by-taxa-pie").set_defaults(func=plot_average_by_taxa_pie)
+    subparsers.add_parser("dump", help="Returns everything in the file.").set_defaults(func=dump)
+    subparsers.add_parser("list", help="Returns a list of all protein names.").set_defaults(func=names)
+    subparsers.add_parser("average", help="Returns the average length of the protein.").set_defaults(func=average)
+    subparsers.add_parser("plot-average-by-taxa", help="Returns the results in a bar chart for different taxas.")\
+        .set_defaults(func=plot_average_by_taxa)
+    subparsers.add_parser("plot-average-by-taxa-pie", help="Returns the results in a pie chart for different taxas.")\
+        .set_defaults(func=plot_average_by_taxa_pie)
     ## Parse the command line
     args = parser.parse_args()
     ## Takes the func argument, which points to the function to call it
